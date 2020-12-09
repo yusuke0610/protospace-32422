@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!
-  before_action :move_to_index, 
+  before_action :move_to_index
   def index
    @prototypes = Prototype.all
   
