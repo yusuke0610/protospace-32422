@@ -3,7 +3,6 @@ class PrototypesController < ApplicationController
   before_action :move_to_index
   def index
    @prototypes = Prototype.all
-  
   end
 
   def new
