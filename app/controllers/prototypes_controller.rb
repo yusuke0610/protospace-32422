@@ -2,7 +2,8 @@ class PrototypesController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_index
   def index
-   @prototypes = Prototype.all
+   @prototype = Prototype.all
+  #  @prototypes = @prototype.users.id
   end
 
   def new
@@ -19,13 +20,10 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    # ログイン状態のユーザーに限り、自身の投稿したプロトタイプの詳細ページから削除ボタンをクリックすると、プロトタイプを削除できること
-    @prototype = Prototype.find(params[:id])
-    if @prototype.destroy
-       redirect_to root_path
-    else
-       render :show
-    end
+     @prototype = Prototype.find(params[:id])
+     if @prototype.destroy
+      redirect_to root_path
+     end
   end
  
   def show
